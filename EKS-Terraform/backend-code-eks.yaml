@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    name: backend-deployment
+    type: backend
+spec:
+  template:
+    metadata:
+      name: backend-deployment
+      labels:
+        app: backend-deployment
+        type: backend
+    spec:
+      containers:
+        - name: backend-deployment
+          image: 970552785673.dkr.ecr.us-west-2.amazonaws.com/demo-app:v2
+          ports:
+            - containerPort: 8080
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend-deployment
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: backend-deployment
+  type: LoadBalancer
+
