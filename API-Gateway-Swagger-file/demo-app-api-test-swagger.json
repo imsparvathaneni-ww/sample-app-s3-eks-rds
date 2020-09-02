@@ -72,6 +72,12 @@
         ],
         "parameters": [
           {
+            "name": "Access-Control-Allow-Origin",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "deleteuserid",
             "in": "path",
             "required": true,
@@ -181,6 +187,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "Access-Control-Allow-Origin",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "updateuserid",
             "in": "path",

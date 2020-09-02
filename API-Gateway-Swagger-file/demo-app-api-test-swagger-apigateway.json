@@ -41,7 +41,10 @@
           "uri": "http://ae00c8ee47b13413d9b92c2e5759b4b5-704215640.us-west-2.elb.amazonaws.com:8080/api/addUser",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "passthroughBehavior": "when_no_match",
@@ -78,7 +81,12 @@
           "type": "mock",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestTemplates": {
@@ -94,6 +102,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "Access-Control-Allow-Origin",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "deleteuserid",
             "in": "path",
@@ -119,8 +133,15 @@
           "uri": "http://ae00c8ee47b13413d9b92c2e5759b4b5-704215640.us-west-2.elb.amazonaws.com:8080/api/deleteUser/{deleteuserid}",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
+          },
+          "requestParameters": {
+            "integration.request.header.Access-Control-Allow-Origin": "'*'",
+            "integration.request.path.deleteuserid": "method.request.path.deleteuserid"
           },
           "passthroughBehavior": "when_no_match",
           "httpMethod": "DELETE"
@@ -164,7 +185,12 @@
           "type": "mock",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'DELETE,OPTIONS'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestTemplates": {
@@ -197,7 +223,10 @@
           "uri": "http://ae00c8ee47b13413d9b92c2e5759b4b5-704215640.us-west-2.elb.amazonaws.com:8080/api/getUsers",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "passthroughBehavior": "when_no_match",
@@ -234,7 +263,12 @@
           "type": "mock",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestTemplates": {
@@ -250,6 +284,12 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "Access-Control-Allow-Origin",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "updateuserid",
             "in": "path",
@@ -275,10 +315,14 @@
           "uri": "http://ae00c8ee47b13413d9b92c2e5759b4b5-704215640.us-west-2.elb.amazonaws.com:8080/api/updateUser/{updateuserid}",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestParameters": {
+            "integration.request.header.Access-Control-Allow-Origin": "'*'",
             "integration.request.path.updateuserid": "method.request.path.updateuserid"
           },
           "passthroughBehavior": "when_no_match",
@@ -323,7 +367,12 @@
           "type": "mock",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PUT'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestTemplates": {
